@@ -321,6 +321,11 @@ describe UsersController do
         delete :destroy, :id => @user
         response.should redirect_to(root_path)
       end
+      
+      it "should not show delete" do
+        
+      end
+      
     end
     
     describe "as an admin user" do
