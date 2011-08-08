@@ -255,6 +255,23 @@ describe User do
     end
     
   end
+  
+  describe "relationship association" do
+  
+    before(:each) do
+      @user = User.create!(@attr)
+      @followed = Factory(:user)
+      
+      @user.follow!(@followed)
+    end
+    
+    it "should destroy associated relationship" do
+      @user.destroy
+      @followed.followers.should_not include(@user)
+    end
+
+  end
+  
     
 end
 
